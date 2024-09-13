@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+  #data-display {
+    margin-top: 20px;
+  }
+  
