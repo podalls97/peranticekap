@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       display.innerHTML = filteredData.map(row => {
-        return `<p>${row[2]} - ${row[3]} units</p>`;
+        return `<p>School: ${row[0]}, Device: ${row[1]}, Model: ${row[2]}, Serial Number: ${row[3]}, Status: ${row[4]}</p>`;
       }).join('');
     };
     
