@@ -7,21 +7,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Peripheral Data by School</h1>
+  <header>
+    <h1>Peripheral Data by School</h1>
+    <section class="brief">
+      <h2>Objective</h2>
+      <p>The objective of this page is to provide detailed information about the ICT peripherals across different schools, categorized by device type and school name.</p>
+      
+      <h2>Brief</h2>
+      <p>This system helps administrators to monitor and maintain the status of devices allocated to schools, ensuring effective tracking and timely repairs.</p>
+    </section>
+  </header>
   
-  <label for="school-select">Select School:</label>
-  <select id="school-select">
-    <option value="">--Choose a School--</option>
-  </select>
-  
-  <label for="device-type-select">Select Device Type:</label>
-  <select id="device-type-select">
-    <option value="">--Choose a Device Type--</option>
-  </select>
-  
-  <div id="data-display">
-    <!-- Data will be shown here -->
-  </div>
+  <main>
+    <label for="school-select">Select School:</label>
+    <select id="school-select">
+      <option value="">--Choose a School--</option>
+    </select>
+
+    <label for="device-type-select">Select Device Type:</label>
+    <select id="device-type-select">
+      <option value="">--Choose a Device Type--</option>
+    </select>
+
+    <div id="data-display">
+      <!-- Data will be shown here in a table -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 School ICT Data. All Rights Reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
