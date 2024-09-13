@@ -1,16 +1,83 @@
+/* General styling */
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  label {
-    margin-right: 10px;
-  }
-  
-  #data-display {
-    margin-top: 20px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+.brief {
+  padding: 20px;
+  background-color: #e2e2e2;
+}
+
+main {
+  flex: 1; /* Allows the main content to grow and take available space */
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+#data-display {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #f8f8f8;
+  text-align: left;
+}
+
+/* Animation */
+#data-display {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+}
