@@ -1,6 +1,5 @@
 [
   {
-	 "no": "1",
     "school": "smk spaoh",
     "device": "peranti cerdik",
     "model": "lenovo",
@@ -27,5 +26,12 @@
     "model": "lenovo",
     "serial_number": "pg00100",
     "status": "missing"
+  },
+  {
+    "school": "smk spaoh",
+    "device": "peranti guru",
+    "model": "lenovo",
+    "serial_number": "pg00110",
+    "status": "good"
   }
 ]
