@@ -1,1 +1,31 @@
-a
+[
+  {
+	 "no": "1",
+    "school": "smk spaoh",
+    "device": "peranti cerdik",
+    "model": "lenovo",
+    "serial_number": "pc001",
+    "status": "good"
+  },
+  {
+    "school": "sk spaoh",
+    "device": "peranti cerdik",
+    "model": "microsoft surface",
+    "serial_number": "pc010",
+    "status": "in repair"
+  },
+  {
+    "school": "sk spaoh",
+    "device": "peranti guru",
+    "model": "lenovo",
+    "serial_number": "pg01010",
+    "status": "good"
+  },
+  {
+    "school": "smk spaoh",
+    "device": "peranti guru",
+    "model": "lenovo",
+    "serial_number": "pg00100",
+    "status": "missing"
+  }
+]
