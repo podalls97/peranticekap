@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="description" content="Detailed ICT peripheral information across schools. Track and maintain devices easily.">
   <meta name="keywords" content="ICT, School, Peripheral, Device, Tracking">
-  <meta name="author" content="School ICT Data Team">
+  <meta name="author" content="Ptict Betong Team">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ptict PPD BETONG</title>
+  <title>Peranti Cekap</title>
 
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Custom Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,500,600|Inter:200,300,400,500,600&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="blurred-header">
     <nav>
-      <ul>
+      <ul class="nav-list">
         <li><a href="#objective">Objective</a></li>
         <li><a href="#brief">Brief</a></li>
         <li><a href="#data-section">Data</a></li>
@@ -37,15 +43,13 @@
       <div class="filter-section" data-aos="zoom-in">
         <label for="school-select">Select School:</label>
         <select id="school-select" aria-label="Select School">
-          <option value="">--Choose a School--</option>
+          <option value="">Choose a School</option>
         </select>
 
         <label for="device-type-select">Select Device Type:</label>
         <select id="device-type-select" aria-label="Select Device Type">
-          <option value="">--Choose a Device Type--</option>
+          <option value="">Choose a Device Type</option>
         </select>
-        
-        <button id="refresh-button" data-aos="fade-up">Refresh Data</button>
       </div>
 
       <div id="loading" style="display: none;" data-aos="fade-in">Loading data, please wait...</div>
@@ -76,12 +80,17 @@
           <p>Quantity missing: <strong id="quantity-missing">0</strong></p>
           <p>Quantity in repair: <strong id="quantity-repair">0</strong></p>
         </div>
+        
+        <!-- Chart Container -->
+        <div id="chart-container" style="display: none;">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; Peranti Cekap. All Rights Reserved.</p>
+    <p>&copy; 2024 Peranti Cekap. All Rights Reserved.</p>
     <a href="#top" aria-label="Back to top" data-aos="fade-up">Back to top</a>
   </footer>
 
@@ -95,6 +104,7 @@
     });
   </script>
   
+  <!-- Custom JS -->
   <script src="script.js"></script>
 </body>
 </html>
