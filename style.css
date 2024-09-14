@@ -176,16 +176,16 @@ td {
 }
 
 /* Status Colors */
-td.status-good {
-  color: #4caf50; /* Green for good status */
+td.status-baik {
+  color: #4caf50; 
 }
 
-td.status-missing {
-  color: #f44336; /* Red for missing status */
+td.status-hilang {
+  color: #f44336; 
 }
 
-td.status-repair {
-  color: #ff9800; /* Orange for repair status */
+td.status-dibaiki {
+  color: #ff9800; 
 }
 
 /* No Data Message */
@@ -210,7 +210,7 @@ td.status-repair {
   font-size: 1.2rem;
 }
 
-#total-quantity, #quantity-good, #quantity-missing, #quantity-repair {
+#total-quantity, #quantity-baik, #quantity-hilang, #quantity-dibaiki {
   font-weight: bold;
   color: #486488;
 }
