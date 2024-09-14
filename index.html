@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Detailed ICT peripheral information across schools. Track and maintain devices easily.">
-  <meta name="keywords" content="ICT, School, Peripheral, Device, Tracking">
-  <meta name="author" content="Ptict Betong Team">
+  <meta name="description" content="Maklumat terperinci tentang periferal ICT di sekolah-sekolah. Jejak dan selenggara peranti dengan mudah.">
+  <meta name="keywords" content="ICT, Sekolah, Periferal, Peranti, Penjejakan">
+  <meta name="author" content="Pasukan Ptict Betong">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peranti Cekap</title>
 
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- Custom Google Fonts -->
+  <!-- Google Font Tersuai -->
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,500,600|Inter:200,300,400,500,600&display=swap" rel="stylesheet">
   
-  <!-- Custom CSS -->
+  <!-- CSS Tersuai -->
   <link rel="stylesheet" href="style.css">
 
   <!-- Chart.js -->
@@ -23,65 +23,65 @@
   <header class="blurred-header">
     <nav>
       <ul class="nav-list">
-        <li><a href="#objective">Objective</a></li>
-        <li><a href="#brief">Brief</a></li>
+        <li><a href="#objective">Objektif</a></li>
+        <li><a href="#brief">Ringkasan</a></li>
         <li><a href="#data-section">Data</a></li>
       </ul>
     </nav>
-    <h1 data-aos="fade-down">Peripheral Data by School</h1>
+    <h1 data-aos="fade-down">Data Periferal Mengikut Sekolah</h1>
     <section class="brief" id="objective" data-aos="fade-up">
-      <h2>Objective</h2>
-      <p>The objective of this page is to provide detailed information about the ICT peripherals across different schools, categorized by device type and school name.</p>
+      <h2>Objektif</h2>
+      <p>Objektif halaman ini adalah untuk memberikan maklumat terperinci tentang periferal ICT di sekolah-sekolah yang berbeza, dikategorikan mengikut jenis peranti dan nama sekolah.</p>
       
-      <h2 id="brief" data-aos="fade-up" data-aos-delay="200">Brief</h2>
-      <p>This system helps administrators to monitor and maintain the status of devices allocated to schools, ensuring effective tracking and timely repairs.</p>
+      <h2 id="brief" data-aos="fade-up" data-aos-delay="200">Ringkasan</h2>
+      <p>Sistem ini membantu pentadbir memantau dan menyelenggara status peranti yang diperuntukkan kepada sekolah, memastikan penjejakan yang berkesan dan pembaikan yang tepat pada masanya.</p>
     </section>
   </header>
   
   <main>
     <section id="data-section">
       <div class="filter-section" data-aos="zoom-in">
-        <label for="school-select">Select School:</label>
-        <select id="school-select" aria-label="Select School">
-          <option value="">Choose a School</option>
+        <label for="school-select">Pilih Sekolah:</label>
+        <select id="school-select" aria-label="Pilih Sekolah">
+          <option value="">Pilih Sekolah</option>
         </select>
 
-        <label for="device-type-select">Select Device Type:</label>
-        <select id="device-type-select" aria-label="Select Device Type">
-          <option value="">Choose a Device Type</option>
+        <label for="device-type-select">Pilih Jenis Peranti:</label>
+        <select id="device-type-select" aria-label="Pilih Jenis Peranti">
+          <option value="">Pilih Jenis Peranti</option>
         </select>
       </div>
 
-      <div id="loading" style="display: none;" data-aos="fade-in">Loading data, please wait...</div>
+      <div id="loading" style="display: none;" data-aos="fade-in">Memuatkan data, sila tunggu...</div>
       
       <div id="data-display">
         <div id="data-table-container" class="table-responsive">
-          <table id="data-table" aria-label="School Device Data" style="display: none;">
+          <table id="data-table" aria-label="Data Peranti Sekolah" style="display: none;">
             <thead>
               <tr>
-                <th>School Name</th>
-                <th>Device Type</th>
+                <th>Nama Sekolah</th>
+                <th>Jenis Peranti</th>
                 <th>Model</th>
-                <th>Serial Number</th>
+                <th>Nombor Siri</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              <!-- Data will be populated here -->
+              <!-- Data akan dipaparkan di sini -->
             </tbody>
           </table>
         </div>
 
-        <div id="no-data-message" style="display: none;" data-aos="fade-up" data-aos-delay="300">No data available for the selected options.</div>
+        <div id="no-data-message" style="display: none;" data-aos="fade-up" data-aos-delay="300">Tiada data untuk pilihan yang dipilih.</div>
         
         <div id="quantity-summary" class="summary" style="display: none;">
-          <p>Total quantity: <strong id="total-quantity">0</strong></p>
-          <p>Quantity good: <strong id="quantity-good">0</strong></p>
-          <p>Quantity missing: <strong id="quantity-missing">0</strong></p>
-          <p>Quantity in repair: <strong id="quantity-repair">0</strong></p>
+          <p>Jumlah kuantiti: <strong id="total-quantity">0</strong></p>
+          <p>Kuantiti baik: <strong id="quantity-baik">0</strong></p>
+          <p>Kuantiti hilang: <strong id="quantity-hilang">0</strong></p>
+          <p>Kuantiti dalam pembaikan: <strong id="quantity-dibaiki">0</strong></p>
         </div>
         
-        <!-- Chart Container -->
+        <!-- Bekas Carta -->
         <div id="chart-container" style="display: none;">
           <canvas id="myChart" width="400" height="400"></canvas>
         </div>
@@ -90,21 +90,21 @@
   </main>
 
   <footer>
-    <p>&copy; 2024 Peranti Cekap. All Rights Reserved.</p>
-    <a href="#top" aria-label="Back to top" data-aos="fade-up">Back to top</a>
+    <p>&copy; 2024 Peranti Cekap. Hak Cipta Terpelihara.</p>
+    <a href="#top" aria-label="Kembali ke atas" data-aos="fade-up">Kembali ke atas</a>
   </footer>
 
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000, // animation duration
-      easing: 'ease-in-out', // easing function
-      once: true // whether animation should happen only once
+      duration: 1000, // tempoh animasi
+      easing: 'ease-in-out', // fungsi easing
+      once: true // sama ada animasi hanya berlaku sekali
     });
   </script>
   
-  <!-- Custom JS -->
+  <!-- JS Tersuai -->
   <script src="script.js"></script>
 </body>
 </html>
