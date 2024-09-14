@@ -10,15 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const quantityGoodElement = document.getElementById('quantity-good');
   const quantityMissingElement = document.getElementById('quantity-missing');
   const quantityRepairElement = document.getElementById('quantity-repair');
+  const chartContainer = document.getElementById('chart-container');
+  
+  let chart;
 
   // Fetch data from the JSON file
   async function fetchData() {
     try {
+      loadingMessage.style.display = 'block';
       const response = await fetch('data.json');
       if (!response.ok) throw new Error('Network response was not ok');
-      return await response.json();
+      const data = await response.json();
+      loadingMessage.style.display = 'none';
+      return data;
     } catch (error) {
       console.error('Failed to fetch data:', error);
+      loadingMessage.style.display = 'none';
       return [];
     }
   }
@@ -30,23 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const devices = [...new Set(data.map(item => item.device))];
 
     // Populate school dropdown
-    schools.forEach(school => {
-      const option = document.createElement('option');
-      option.value = school;
-      option.textContent = school;
-      schoolSelect.appendChild(option);
-    });
+    populateDropdown(schoolSelect, schools);
 
     // Populate device type dropdown
-    devices.forEach(device => {
+    populateDropdown(deviceTypeSelect, devices);
+  }
+
+  // Helper function to populate dropdowns
+  function populateDropdown(selectElement, items) {
+    items.forEach(item => {
       const option = document.createElement('option');
-      option.value = device;
-      option.textContent = device;
-      deviceTypeSelect.appendChild(option);
+      option.value = item;
+      option.textContent = item;
+      selectElement.appendChild(option);
     });
   }
 
-  // Update table and quantity summary based on selected filters
+  // Update table, quantity summary, and chart based on selected filters
   async function updateData() {
     const data = await fetchData();
     const selectedSchool = schoolSelect.value;
@@ -62,29 +69,34 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filteredData.length === 0) {
       dataTable.style.display = 'none';
       noDataMessage.style.display = 'block';
+      chartContainer.style.display = 'none';
     } else {
-      // Populate table
       dataTable.style.display = 'table';
       noDataMessage.style.display = 'none';
-      dataTableBody.innerHTML = '';
-
-      filteredData.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${item.school}</td>
-          <td>${item.device}</td>
-          <td>${item.model}</td>
-          <td>${item.serial_number}</td>
-          <td>${item.status}</td>
-        `;
-        dataTableBody.appendChild(row);
-      });
-
-      // Update quantity summary
+      populateTable(filteredData);
       updateQuantitySummary(filteredData);
+      updateChart(filteredData);
     }
   }
 
+  // Populate the table with filtered data
+  function populateTable(data) {
+    dataTableBody.innerHTML = '';
+    data.forEach(item => {
+      const row = document.createElement('tr');
+      const statusClass = `status-${item.status.replace(/\s+/g, '-').toLowerCase()}`;
+      row.innerHTML = `
+        <td>${item.school}</td>
+        <td>${item.device}</td>
+        <td>${item.model}</td>
+        <td>${item.serial_number}</td>
+        <td class="${statusClass}">${item.status}</td>
+      `;
+      dataTableBody.appendChild(row);
+    });
+  }
+
+  // Update quantity summary
   function updateQuantitySummary(data) {
     const totalQuantity = data.length;
     const quantityGood = data.filter(item => item.status === 'good').length;
@@ -97,6 +109,53 @@ document.addEventListener('DOMContentLoaded', () => {
     quantityRepairElement.textContent = quantityRepair;
 
     quantitySummary.style.display = 'block';
+  }
+
+  // Update the chart
+  function updateChart(data) {
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    const chartData = {
+      labels: ['Good', 'Missing', 'In Repair'],
+      datasets: [{
+        data: [
+          data.filter(item => item.status === 'good').length,
+          data.filter(item => item.status === 'missing').length,
+          data.filter(item => item.status === 'in repair').length
+        ],
+        backgroundColor: ['#34D399', '#F59E0B', '#F87171'],
+        borderColor: '#ffffff',
+        borderWidth: 1
+      }]
+    };
+
+    // Destroy the existing chart if it exists
+    if (chart) {
+      chart.destroy();
+    }
+
+    // Create a new doughnut chart
+    chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: chartData,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return `${tooltipItem.label}: ${tooltipItem.raw}`;
+              }
+            }
+          }
+        }
+      }
+    });
+
+    chartContainer.style.display = 'block';
   }
 
   // Event listeners
