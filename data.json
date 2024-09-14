@@ -4,7 +4,7 @@
     "device": "peranti cerdik",
     "model": "lenovo",
     "serial_number": "pc001",
-    "status": "good",
+    "status": "baik",
     "purchase_date": "2023-01-15",
     "warranty_expiry": "2025-01-15"
   },
@@ -13,7 +13,7 @@
     "device": "peranti cerdik",
     "model": "microsoft surface",
     "serial_number": "pc010",
-    "status": "in repair",
+    "status": "dibaiki",
     "purchase_date": "2022-05-22",
     "warranty_expiry": "2024-05-22"
   },
@@ -22,7 +22,7 @@
     "device": "peranti guru",
     "model": "lenovo",
     "serial_number": "pg01010",
-    "status": "good",
+    "status": "baik",
     "purchase_date": "2021-11-05",
     "warranty_expiry": "2023-11-05"
   },
@@ -31,7 +31,7 @@
     "device": "peranti guru",
     "model": "lenovo",
     "serial_number": "pg00100",
-    "status": "missing",
+    "status": "hilang",
     "purchase_date": "2020-07-18",
     "warranty_expiry": "2022-07-18"
   },
@@ -40,7 +40,7 @@
     "device": "peranti guru",
     "model": "lenovo",
     "serial_number": "pg00110",
-    "status": "good",
+    "status": "baik",
     "purchase_date": "2021-03-30",
     "warranty_expiry": "2023-03-30"
   }
