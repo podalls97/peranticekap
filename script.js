@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingMessage = document.getElementById('loading');
   const quantitySummary = document.getElementById('quantity-summary');
   const totalQuantityElement = document.getElementById('total-quantity');
-  const quantityGoodElement = document.getElementById('quantity-good');
-  const quantityMissingElement = document.getElementById('quantity-missing');
-  const quantityRepairElement = document.getElementById('quantity-repair');
+  const quantityBaikElement = document.getElementById('quantity-baik');
+  const quantityHilangElement = document.getElementById('quantity-hilang');
+  const quantityDibaikiElement = document.getElementById('quantity-dibaiki');
   const chartContainer = document.getElementById('chart-container');
   
   let chart;
@@ -99,14 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update quantity summary
   function updateQuantitySummary(data) {
     const totalQuantity = data.length;
-    const quantityGood = data.filter(item => item.status === 'good').length;
-    const quantityMissing = data.filter(item => item.status === 'missing').length;
-    const quantityRepair = data.filter(item => item.status === 'in repair').length;
+    const quantityBaik = data.filter(item => item.status === 'baik').length;
+    const quantityHilang = data.filter(item => item.status === 'hilang').length;
+    const quantityDibaiki = data.filter(item => item.status === 'dibaiki').length;
 
     totalQuantityElement.textContent = totalQuantity;
-    quantityGoodElement.textContent = quantityGood;
-    quantityMissingElement.textContent = quantityMissing;
-    quantityRepairElement.textContent = quantityRepair;
+    quantityBaikElement.textContent = quantityBaik;
+    quantityHilangElement.textContent = quantityHilang;
+    quantityDibaikiElement.textContent = quantityDibaiki;
 
     quantitySummary.style.display = 'block';
   }
@@ -116,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const chartData = {
-      labels: ['Good', 'Missing', 'In Repair'],
+      labels: ['Baik', 'Hilang', 'Dibaiki'],
       datasets: [{
         data: [
-          data.filter(item => item.status === 'good').length,
-          data.filter(item => item.status === 'missing').length,
-          data.filter(item => item.status === 'in repair').length
+          data.filter(item => item.status === 'baik').length,
+          data.filter(item => item.status === 'hilang').length,
+          data.filter(item => item.status === 'dibaiki').length
         ],
         backgroundColor: ['#34D399', '#F59E0B', '#F87171'],
         borderColor: '#ffffff',
