@@ -2,42 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Detailed ICT peripheral information across schools. Track and maintain devices easily.">
+  <meta name="keywords" content="ICT, School, Peripheral, Device, Tracking">
+  <meta name="author" content="School ICT Data Team">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>School ICT Data</title>
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Peripheral Data by School</h1>
-    <section class="brief">
+  <header class="blurred-header">
+    <nav>
+      <ul>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#brief">Brief</a></li>
+        <li><a href="#data-section">Data</a></li>
+      </ul>
+    </nav>
+    <h1 data-aos="fade-down">Peripheral Data by School</h1>
+    <section class="brief" id="objective" data-aos="fade-up">
       <h2>Objective</h2>
       <p>The objective of this page is to provide detailed information about the ICT peripherals across different schools, categorized by device type and school name.</p>
       
-      <h2>Brief</h2>
+      <h2 id="brief" data-aos="fade-up" data-aos-delay="200">Brief</h2>
       <p>This system helps administrators to monitor and maintain the status of devices allocated to schools, ensuring effective tracking and timely repairs.</p>
     </section>
   </header>
   
   <main>
-    <label for="school-select">Select School:</label>
-    <select id="school-select">
-      <option value="">--Choose a School--</option>
-    </select>
+    <section id="data-section">
+      <div class="filter-section" data-aos="zoom-in">
+        <label for="school-select">Select School:</label>
+        <select id="school-select" aria-label="Select School">
+          <option value="">--Choose a School--</option>
+        </select>
 
-    <label for="device-type-select">Select Device Type:</label>
-    <select id="device-type-select">
-      <option value="">--Choose a Device Type--</option>
-    </select>
+        <label for="device-type-select">Select Device Type:</label>
+        <select id="device-type-select" aria-label="Select Device Type">
+          <option value="">--Choose a Device Type--</option>
+        </select>
+        
+        <button id="refresh-button" data-aos="fade-up">Refresh Data</button>
+      </div>
 
-    <div id="data-display">
-      <!-- Data will be shown here in a table -->
-    </div>
+      <div id="loading" style="display: none;" data-aos="fade-in">Loading data, please wait...</div>
+      
+      <div id="data-display">
+        <div id="data-table-container" class="table-responsive">
+          <table id="data-table" aria-label="School Device Data" style="display: none;">
+            <thead>
+              <tr>
+                <th>School Name</th>
+                <th>Device Type</th>
+                <th>Model</th>
+                <th>Serial Number</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="no-data-message" style="display: none;" data-aos="fade-up" data-aos-delay="300">No data available for the selected options.</div>
+        
+        <div id="quantity-summary" class="summary" style="display: none;">
+          <p>Total quantity: <strong id="total-quantity">0</strong></p>
+          <p>Quantity good: <strong id="quantity-good">0</strong></p>
+          <p>Quantity missing: <strong id="quantity-missing">0</strong></p>
+          <p>Quantity in repair: <strong id="quantity-repair">0</strong></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2024 School ICT Data. All Rights Reserved.</p>
+    <a href="#top" aria-label="Back to top" data-aos="fade-up">Back to top</a>
   </footer>
 
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // animation duration
+      easing: 'ease-in-out', // easing function
+      once: true // whether animation should happen only once
+    });
+  </script>
+  
   <script src="script.js"></script>
 </body>
 </html>
