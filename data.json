@@ -1,47 +1,499 @@
 [
-  {
-    "school": "smk spaoh",
-    "device": "peranti cerdik",
-    "model": "lenovo",
-    "serial_number": "pc001",
-    "status": "baik",
-    "purchase_date": "2023-01-15",
-    "warranty_expiry": "2025-01-15"
-  },
-  {
-    "school": "sk spaoh",
-    "device": "peranti cerdik",
-    "model": "microsoft surface",
-    "serial_number": "pc010",
-    "status": "dibaiki",
-    "purchase_date": "2022-05-22",
-    "warranty_expiry": "2024-05-22"
-  },
-  {
-    "school": "sk spaoh",
-    "device": "peranti guru",
-    "model": "lenovo",
-    "serial_number": "pg01010",
-    "status": "baik",
-    "purchase_date": "2021-11-05",
-    "warranty_expiry": "2023-11-05"
-  },
-  {
-    "school": "smk spaoh",
-    "device": "peranti guru",
-    "model": "lenovo",
-    "serial_number": "pg00100",
-    "status": "hilang",
-    "purchase_date": "2020-07-18",
-    "warranty_expiry": "2022-07-18"
-  },
-  {
-    "school": "smk spaoh",
-    "device": "peranti guru",
-    "model": "lenovo",
-    "serial_number": "pg00110",
-    "status": "baik",
-    "purchase_date": "2021-03-30",
-    "warranty_expiry": "2023-03-30"
-  }
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti cerdik",
+        "model":"lenovo",
+        "serial_number":"pc001",
+        "status":"baik"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti cerdik",
+        "model":"microsoft surface",
+        "serial_number":"pc010",
+        "status":"dibaiki"
+    },
+    {
+        "school":"sk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg01010",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"baik"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"dibaiki"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    },
+    {
+        "school":"smk spaoh",
+        "device":"peranti guru",
+        "model":"lenovo",
+        "serial_number":"pg00100",
+        "status":"hilang"
+    }
 ]
