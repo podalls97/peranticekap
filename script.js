@@ -1,167 +1,130 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const schoolSelect = document.getElementById('school-select');
-  const deviceTypeSelect = document.getElementById('device-type-select');
-  const dataTable = document.getElementById('data-table');
-  const dataTableBody = dataTable.querySelector('tbody');
+  const loadingSpinner = document.getElementById('loading-spinner');
+  const dataTableContainer = document.getElementById('data-table-container');
   const noDataMessage = document.getElementById('no-data-message');
-  const loadingMessage = document.getElementById('loading');
   const quantitySummary = document.getElementById('quantity-summary');
-  const totalQuantityElement = document.getElementById('total-quantity');
-  const quantityBaikElement = document.getElementById('quantity-baik');
-  const quantityHilangElement = document.getElementById('quantity-hilang');
-  const quantityDibaikiElement = document.getElementById('quantity-dibaiki');
   const chartContainer = document.getElementById('chart-container');
+  const dataDisplay = document.getElementById('data-display');
   
-  let chart;
+  // Initially hide data elements
+  dataDisplay.style.display = 'none';
+  noDataMessage.style.display = 'none';
+  dataTableContainer.style.display = 'none';
+  quantitySummary.style.display = 'none';
+  chartContainer.style.display = 'none';
 
-  // Fetch data from the JSON file
-  async function fetchData() {
-    try {
-      loadingMessage.style.display = 'block';
-      const response = await fetch('data.json');
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      loadingMessage.style.display = 'none';
-      return data;
-    } catch (error) {
-      console.error('Failed to fetch data:', error);
-      loadingMessage.style.display = 'none';
-      return [];
-    }
-  }
+  // Fetch data from data.json
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const schoolSelect = document.getElementById('school-select');
+      const deviceTypeSelect = document.getElementById('device-type-select');
 
-  // Initialize dropdowns with unique options
-  async function initFilters() {
-    const data = await fetchData();
-    const schools = [...new Set(data.map(item => item.school))];
-    const devices = [...new Set(data.map(item => item.device))];
+      const uniqueSchools = [...new Set(data.map(item => item.school.toUpperCase()))];
+      const uniqueDeviceTypes = [...new Set(data.map(item => item.device.toUpperCase()))];
 
-    // Populate school dropdown
-    populateDropdown(schoolSelect, schools);
+      uniqueSchools.forEach(school => {
+        const option = document.createElement('option');
+        option.value = school;
+        option.textContent = school;
+        schoolSelect.appendChild(option);
+      });
 
-    // Populate device type dropdown
-    populateDropdown(deviceTypeSelect, devices);
-  }
+      uniqueDeviceTypes.forEach(device => {
+        const option = document.createElement('option');
+        option.value = device;
+        option.textContent = device;
+        deviceTypeSelect.appendChild(option);
+      });
 
-  // Helper function to populate dropdowns
-  function populateDropdown(selectElement, items) {
-    items.forEach(item => {
-      const option = document.createElement('option');
-      option.value = item;
-      option.textContent = item;
-      selectElement.appendChild(option);
-    });
-  }
+      // Function to populate table and summary
+      function populateTable(filteredData) {
+        const tableBody = document.querySelector('#data-table tbody');
+        tableBody.innerHTML = '';
 
-  // Update table, quantity summary, and chart based on selected filters
-  async function updateData() {
-    const data = await fetchData();
-    const selectedSchool = schoolSelect.value;
-    const selectedDevice = deviceTypeSelect.value;
-
-    // Filter data
-    const filteredData = data.filter(item =>
-      (!selectedSchool || item.school === selectedSchool) &&
-      (!selectedDevice || item.device === selectedDevice)
-    );
-
-    // Show/hide no data message
-    if (filteredData.length === 0) {
-      dataTable.style.display = 'none';
-      noDataMessage.style.display = 'block';
-      chartContainer.style.display = 'none';
-    } else {
-      dataTable.style.display = 'table';
-      noDataMessage.style.display = 'none';
-      populateTable(filteredData);
-      updateQuantitySummary(filteredData);
-      updateChart(filteredData);
-    }
-  }
-
-  // Populate the table with filtered data
-  function populateTable(data) {
-    dataTableBody.innerHTML = '';
-    data.forEach(item => {
-      const row = document.createElement('tr');
-      const statusClass = `status-${item.status.replace(/\s+/g, '-').toLowerCase()}`;
-      row.innerHTML = `
-        <td>${item.school}</td>
-        <td>${item.device}</td>
-        <td>${item.model}</td>
-        <td>${item.serial_number}</td>
-        <td class="${statusClass}">${item.status}</td>
-      `;
-      dataTableBody.appendChild(row);
-    });
-  }
-
-  // Update quantity summary
-  function updateQuantitySummary(data) {
-    const totalQuantity = data.length;
-    const quantityBaik = data.filter(item => item.status === 'baik').length;
-    const quantityHilang = data.filter(item => item.status === 'hilang').length;
-    const quantityDibaiki = data.filter(item => item.status === 'dibaiki').length;
-
-    totalQuantityElement.textContent = totalQuantity;
-    quantityBaikElement.textContent = quantityBaik;
-    quantityHilangElement.textContent = quantityHilang;
-    quantityDibaikiElement.textContent = quantityDibaiki;
-
-    quantitySummary.style.display = 'block';
-  }
-
-  // Update the chart
-  function updateChart(data) {
-    const ctx = document.getElementById('myChart').getContext('2d');
-
-    const chartData = {
-      labels: ['Baik', 'Hilang', 'Dibaiki'],
-      datasets: [{
-        data: [
-          data.filter(item => item.status === 'baik').length,
-          data.filter(item => item.status === 'hilang').length,
-          data.filter(item => item.status === 'dibaiki').length
-        ],
-        backgroundColor: ['#34D399', '#F59E0B', '#F87171'],
-        borderColor: '#ffffff',
-        borderWidth: 1
-      }]
-    };
-
-    // Destroy the existing chart if it exists
-    if (chart) {
-      chart.destroy();
-    }
-
-    // Create a new doughnut chart
-    chart = new Chart(ctx, {
-      type: 'doughnut',
-      data: chartData,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          tooltip: {
-            callbacks: {
-              label: function(tooltipItem) {
-                return `${tooltipItem.label}: ${tooltipItem.raw}`;
-              }
-            }
-          }
+        if (filteredData.length === 0) {
+          noDataMessage.style.display = 'block';
+          dataTableContainer.style.display = 'none';
+          quantitySummary.style.display = 'none';
+          chartContainer.style.display = 'none';
+          return;
         }
+
+        noDataMessage.style.display = 'none';
+        dataTableContainer.style.display = 'table';
+        quantitySummary.style.display = 'block';
+        chartContainer.style.display = 'block';
+
+        let quantityBaik = 0;
+        let quantityHilang = 0;
+        let quantityDibaiki = 0;
+
+        filteredData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.school}</td>
+            <td>${item.device}</td>
+            <td>${item.model}</td>
+            <td>${item.serial_number}</td>
+            <td>${item.status}</td>
+          `;
+          tableBody.appendChild(row);
+
+          if (item.status.toLowerCase() === 'baik') quantityBaik++;
+          if (item.status.toLowerCase() === 'hilang') quantityHilang++;
+          if (item.status.toLowerCase() === 'dibaiki') quantityDibaiki++;
+        });
+
+        document.getElementById('total-quantity').textContent = filteredData.length;
+        document.getElementById('quantity-baik').textContent = quantityBaik;
+        document.getElementById('quantity-hilang').textContent = quantityHilang;
+        document.getElementById('quantity-dibaiki').textContent = quantityDibaiki;
+
+        // Update Chart
+        const chartCtx = document.getElementById('myChart').getContext('2d');
+        new Chart(chartCtx, {
+          type: 'pie',
+          data: {
+            labels: ['Baik', 'Hilang', 'Dibaiki'],
+            datasets: [{
+              label: 'Device Status',
+              data: [quantityBaik, quantityHilang, quantityDibaiki],
+              backgroundColor: ['#34D399', '#F59E0B', '#F87171']
+            }]
+          }
+        });
       }
+
+      // Event listeners for filtering
+      schoolSelect.addEventListener('change', filterData);
+      deviceTypeSelect.addEventListener('change', filterData);
+      document.getElementById('search-input').addEventListener('input', filterData);
+
+      function filterData() {
+        const selectedSchool = schoolSelect.value.toUpperCase();
+        const selectedDeviceType = deviceTypeSelect.value.toUpperCase();
+        const searchTerm = document.getElementById('search-input').value.toUpperCase();
+
+        if (selectedSchool === '' && selectedDeviceType === '' && searchTerm === '') {
+          dataDisplay.style.display = 'none'; // Hide data display if no filters are applied
+          return;
+        }
+
+        const filteredData = data.filter(item => 
+          (selectedSchool === '' || item.school.toUpperCase() === selectedSchool) &&
+          (selectedDeviceType === '' || item.device.toUpperCase() === selectedDeviceType) &&
+          (item.school.toUpperCase().includes(searchTerm) ||
+           item.device.toUpperCase().includes(searchTerm) ||
+           item.model.toUpperCase().includes(searchTerm) ||
+           item.serial_number.toUpperCase().includes(searchTerm) ||
+           item.status.toUpperCase().includes(searchTerm))
+        );
+
+        dataDisplay.style.display = 'block'; // Show data display when filtering is applied
+        populateTable(filteredData);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
     });
-
-    chartContainer.style.display = 'block';
-  }
-
-  // Event listeners
-  schoolSelect.addEventListener('change', updateData);
-  deviceTypeSelect.addEventListener('change', updateData);
-
-  // Initialize filters and data on page load
-  initFilters();
 });
