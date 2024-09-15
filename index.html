@@ -18,6 +18,15 @@
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_TRACKING_ID');
+  </script>
 </head>
 <body>
   <header class="blurred-header">
@@ -50,13 +59,18 @@
         <select id="device-type-select" aria-label="Pilih Jenis Peranti">
           <option value="">Pilih Jenis Peranti</option>
         </select>
+
+        <input type="text" id="search-input" placeholder="Search data..." aria-label="Search data">
       </div>
 
-      <div id="loading" style="display: none;" data-aos="fade-in">Memuatkan data, sila tunggu...</div>
+      <div id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading data, please wait...</p>
+      </div>
       
-      <div id="data-display">
-        <div id="data-table-container" class="table-responsive">
-          <table id="data-table" aria-label="Data Peranti Sekolah" style="display: none;">
+      <div id="data-display" class="centered-content">
+        <div id="data-table-container" class="table-responsive" style="display: none;">
+          <table id="data-table" aria-label="Data Peranti Sekolah">
             <thead>
               <tr>
                 <th>Nama Sekolah</th>
