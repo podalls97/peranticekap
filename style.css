@@ -43,6 +43,15 @@ main {
   padding: 40px 20px;
 }
 
+/* Centered content */
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Blurred Header */
 .blurred-header {
   backdrop-filter: blur(15px);
@@ -96,188 +105,229 @@ header h1 {
 .brief h2 {
   color: #60a5fa;
   font-size: 1.8rem;
+  margin-bottom: 10px;
 }
 
-.brief p {
-  color: #e0e7ff;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-/* Filter Section */
+/* Filter Section Styling */
 .filter-section {
-  display: flex;
-  flex-wrap: wrap; /* Ensure items wrap on small screens */
-  gap: 10px; /* Space between items */
-  justify-content: center; /* Center items horizontally */
-  margin-bottom: 20px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
 }
 
 .filter-section label {
-  font-size: 1rem;
-  font-weight: 500;
-  flex: 1; /* Allow labels to grow and shrink */
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
-select, button {
+.filter-section select, 
+.filter-section input[type="text"] {
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #6c85ba;
-  background-color: #374052;
-  color: white;
   font-size: 1rem;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  flex: 1; /* Allow selects and buttons to grow and shrink */
-}
-
-select:focus, button:focus {
-  outline: none;
-}
-
-button:hover, select:hover {
-  background-color: #1e40af;
-  border-color: #1e40af;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
 }
 
 /* Data Table */
 .table-responsive {
+  width: 100%;
   overflow-x: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
 }
 
-table {
+#data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-th, td {
-  padding: 15px;
-  text-align: left;
-  text-transform: uppercase; /* Make all text in the table uppercase */
-}
-
-th {
-  background-color: #364a74;
-  color: white;
-  font-weight: 600;
-}
-
-td {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Status Colors */
-td.status-baik {
-  color: #4caf50; 
-}
-
-td.status-hilang {
-  color: #f44336; 
-}
-
-td.status-dibaiki {
-  color: #ff9800; 
-}
-
-/* No Data Message */
-#no-data-message {
-  text-align: center;
-  color: #f87171;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-/* Quantity Summary */
-.summary {
   background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.summary p {
-  font-size: 1.2rem;
+#data-table th, #data-table td {
+  padding: 12px;
+  text-align: left;
+  text-transform: uppercase;
 }
 
-#total-quantity, #quantity-baik, #quantity-hilang, #quantity-dibaiki {
-  font-weight: bold;
-  color: #486488;
+#data-table th {
+  background-color: #4a4a4a;
+  color: #ffffff;
+  
+}
+
+#data-table tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#data-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#data-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+#data-table tbody tr.good {
+  background-color: #d1fae5; /* Light green */
+}
+
+#data-table tbody tr.lost {
+  background-color: #fecaca; /* Light red */
+}
+
+#data-table tbody tr.in-repair {
+  background-color: #fef9c3; /* Light yellow */
+}
+
+#data-table td {
+  border-bottom: 1px solid #ddd;
 }
 
 /* Chart Container */
 #chart-container {
-  margin: 20px auto; /* This centers the container */
-  text-align: center;
-  width: 300px; /* Set the width to match the quantity-summary container */
-  height: auto;
-  display: inline-block;
+  width: 100%;
+  max-width: 600px;
 }
 
-#myChart {
-  max-width: 100%; /* Make the chart fill the container width */
-  height: 200px; /* Set the chart height */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Loading Spinner */
+#loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #ffffff;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-left: 4px solid #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Summary Section */
+.summary {
   background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-#myChart:hover {
-  transform: scale(1.02); 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
-/* Footer Styling */
+/* Footer */
 footer {
-  text-align: center;
+  margin-top: 40px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  margin-top: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 footer p {
-  color: #9ca3af;
+  margin-bottom: 10px;
 }
 
 footer a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #60a5fa;
-  font-size: 0.9rem;
-}
-
-footer a:hover {
   color: #93c5fd;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 600px) {
+/* Responsive Design */
+
+/* For iPhones and small devices */
+@media (max-width: 480px) {
+  body {
+    padding: 0 10px;
+  }
+
+  .blurred-header {
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .brief h2 {
+    font-size: 1.5rem;
+  }
+
   .filter-section {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
   }
 
-  .filter-section label, .filter-section select {
+  .filter-section select, 
+  .filter-section input[type="text"] {
     width: 100%;
+    max-width: none;
+  }
+
+  #data-table th, #data-table td {
+    font-size: 0.9rem;
+    padding: 8px;
+    
+  }
+
+  #data-table {
+    font-size: 0.9rem;
+    
+  }
+}
+
+/* For iPads and medium devices */
+@media (min-width: 481px) and (max-width: 768px) {
+  .blurred-header {
+    padding: 30px;
+    margin-top: 20px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .brief h2 {
+    font-size: 1.7rem;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-section select, 
+  .filter-section input[type="text"] {
+    width: 100%;
+    max-width: none;
+  }
+
+  #data-table th, #data-table td {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  #data-table {
     font-size: 1rem;
   }
+}
 
-  .table-responsive {
-    overflow-x: auto;
-  }
+/* For large devices */
+@media (min-width: 769px) {
+  /* Larger devices, no special adjustments needed */
 }
