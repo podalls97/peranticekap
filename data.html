@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Paparan data terperinci tentang peranti ICT.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paparan Data</title>
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- CSS Tersuai -->
+  <link rel="stylesheet" href="data-style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="blurred-header">
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Utama</a></li> <!-- New navigation to link back -->
+        <li><a href="#data-display">Paparan Data</a></li>
+      </ul>
+    </nav>
+    <h1 data-aos="fade-down">Data Periferal Mengikut Sekolah</h1>
+  </header>
+
+  <main>
+    <!-- Data Section -->
+    <section id="data-section">
+      <div class="filter-section" data-aos="zoom-in">
+        <label for="school-select">Pilih Sekolah:</label>
+        <select id="school-select" aria-label="Pilih Sekolah">
+          <option value="">Pilih Sekolah</option>
+        </select>
+
+        <label for="device-type-select">Pilih Jenis Peranti:</label>
+        <select id="device-type-select" aria-label="Pilih Jenis Peranti">
+          <option value="">Pilih Jenis Peranti</option>
+        </select>
+
+        <input type="text" id="search-input" placeholder="Cari data..." aria-label="Search data">
+      </div>
+
+      <div id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading data, please wait...</p>
+      </div>
+
+      <div id="data-display" class="centered-content">
+        <div id="data-table-container" class="table-responsive" style="display: none;">
+          <table id="data-table" aria-label="Data Peranti Sekolah">
+            <thead>
+              <tr>
+                <th>Nama Sekolah</th>
+                <th>Jenis Peranti</th>
+                <th>Model</th>
+                <th>Nombor Siri</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data will be displayed here -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="no-data-message" style="display: none;" data-aos="fade-up" data-aos-delay="300">Tiada data untuk pilihan yang dipilih.</div>
+        
+        <div id="quantity-summary" class="summary" style="display: none;">
+          <p>Jumlah kuantiti: <strong id="total-quantity">0</strong></p>
+          <p>Kuantiti baik: <strong id="quantity-baik">0</strong></p>
+          <p>Kuantiti hilang: <strong id="quantity-hilang">0</strong></p>
+          <p>Kuantiti dalam pembaikan: <strong id="quantity-dibaiki">0</strong></p>
+        </div>
+
+        <div id="chart-container" style="display: none;">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Peranti Cekap. Hak Cipta Terpelihara.</p>
+    <a href="#top" aria-label="Kembali ke atas" data-aos="fade-up">Kembali ke atas</a>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+  
+  <script src="script.js"></script>
+</body>
+</html>
