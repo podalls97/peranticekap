@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,500,600|Inter:200,300,400,500,600&display=swap" rel="stylesheet">
   
   <!-- CSS Tersuai -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index-style.css">
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -34,70 +34,81 @@
       <ul class="nav-list">
         <li><a href="#objective">Objektif</a></li>
         <li><a href="#brief">Ringkasan</a></li>
-        <li><a href="#data-section">Data</a></li>
+        <li><a href="data.html">Paparan Data</a></li> <!-- New Link -->
+        <li><a href="#gamba">Teknikal Staf</a></li>
       </ul>
     </nav>
-    <h1 data-aos="fade-down">Data Periferal Mengikut Sekolah</h1>
-    <section class="brief" id="objective" data-aos="fade-up">
-      <h2>Objektif</h2>
-      <p>Objektif halaman ini adalah untuk memberikan maklumat terperinci tentang periferal ICT di sekolah-sekolah yang berbeza, dikategorikan mengikut jenis peranti dan nama sekolah.</p>
-      
-      <h2 id="brief" data-aos="fade-up" data-aos-delay="200">Ringkasan</h2>
-      <p>Sistem ini membantu pentadbir memantau dan menyelenggara status peranti yang diperuntukkan kepada sekolah, memastikan penjejakan yang berkesan dan pembaikan yang tepat pada masanya.</p>
-    </section>
+    <h1 data-aos="fade-down">UNIT TEKNIKAL ICT </h1>
+    <H2 data-aos="fade-down">PEJABAT PENDIDIKAN DAERAH BETONG</H2>
   </header>
-  
+
   <main>
-    <section id="data-section">
-      <div class="filter-section" data-aos="zoom-in">
-        <label for="school-select">Pilih Sekolah:</label>
-        <select id="school-select" aria-label="Pilih Sekolah">
-          <option value="">Pilih Sekolah</option>
-        </select>
-
-        <label for="device-type-select">Pilih Jenis Peranti:</label>
-        <select id="device-type-select" aria-label="Pilih Jenis Peranti">
-          <option value="">Pilih Jenis Peranti</option>
-        </select>
-
-        <input type="text" id="search-input" placeholder="Search data..." aria-label="Search data">
-      </div>
-
-      <div id="loading-spinner" style="display: none;">
-        <div class="spinner"></div>
-        <p>Loading data, please wait...</p>
-      </div>
-      
-      <div id="data-display" class="centered-content">
-        <div id="data-table-container" class="table-responsive" style="display: none;">
-          <table id="data-table" aria-label="Data Peranti Sekolah">
-            <thead>
-              <tr>
-                <th>Nama Sekolah</th>
-                <th>Jenis Peranti</th>
-                <th>Model</th>
-                <th>Nombor Siri</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Data akan dipaparkan di sini -->
-            </tbody>
-          </table>
+    <!-- Objective Section with Image Left -->
+    <section class="section-objective" id="objective" data-aos="fade-up">
+      <div class="objective-content">
+        <img src="src/objective.jpg" alt="Objective Image" class="section-image-left">
+        <div class="text-content-right">
+          <h2>Objektif</h2>
+          <p>Matlamat halaman ini adalah untuk menyampaikan maklumat terperinci mengenai periferal ICT di sekolah-sekolah di seluruh kawasan, dikategorikan berdasarkan jenis peranti dan institusi yang terlibat.</p>
+          <p>Ini termasuk keperluan menjejak, mengurus dan memastikan integriti peralatan supaya ia beroperasi secara optimum untuk menyokong proses pengajaran dan pembelajaran.</p>
         </div>
+      </div>
+    </section>
 
-        <div id="no-data-message" style="display: none;" data-aos="fade-up" data-aos-delay="300">Tiada data untuk pilihan yang dipilih.</div>
-        
-        <div id="quantity-summary" class="summary" style="display: none;">
-          <p>Jumlah kuantiti: <strong id="total-quantity">0</strong></p>
-          <p>Kuantiti baik: <strong id="quantity-baik">0</strong></p>
-          <p>Kuantiti hilang: <strong id="quantity-hilang">0</strong></p>
-          <p>Kuantiti dalam pembaikan: <strong id="quantity-dibaiki">0</strong></p>
+    <!-- Ringkasan Section with Image Right -->
+    <section class="section-ringkasan" id="brief" data-aos="fade-up" data-aos-delay="200">
+      <div class="ringkasan-content">
+        <div class="text-content-left">
+          <h2>Ringkasan</h2>
+          <p>Sistem ini membantu pentadbir sekolah dalam pemantauan dan pengurusan status peranti ICT yang diperuntukkan. Ini memastikan penjejakan yang lebih berkesan dan pembaikan yang tepat pada masanya, bagi meminimumkan gangguan dalam proses pendidikan.</p>
+          <p>Dengan penggunaan sistem yang teratur, peranti dapat diselenggara dengan lebih cekap, mengelakkan kerosakan berpanjangan, dan memastikan setiap alat sentiasa dalam keadaan terbaik untuk kegunaan sekolah.</p>
         </div>
-        
-        <!-- Bekas Carta -->
-        <div id="chart-container" style="display: none;">
-          <canvas id="myChart" width="400" height="400"></canvas>
+        <img src="src/ringkasan.jpg" alt="Ringkasan Image" class="section-image-right">
+      </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="gamba-section" id="gamba">
+      <h2 data-aos="fade-up">Teknikal Staf</h2>
+      <div class="containers">
+        <div class="card">
+          <img src="src/alip.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/abul.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/awet.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/musa.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/sabri.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/chris.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/sfaiz.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/rehan.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/zaima.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/libi.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/imelda.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/jeman.jpg" alt="">
+        </div>
+        <div class="card">
+          <img src="src/doug.jpg" alt="">
         </div>
       </div>
     </section>
@@ -112,9 +123,9 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000, // tempoh animasi
-      easing: 'ease-in-out', // fungsi easing
-      once: true // sama ada animasi hanya berlaku sekali
+      duration: 1000, 
+      easing: 'ease-in-out',
+      once: true 
     });
   </script>
   
