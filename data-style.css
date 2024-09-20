@@ -1,0 +1,152 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #2d3436;
+    color: #e0e7ff;
+    text-align: center;
+    min-height: 100vh;
+    padding: 0 15px;
+}
+
+:root {
+    --bg-color: #212121;
+    --highlight-color: #ff4757;
+    --light-color: #ffffff;
+    --table-bg: #2c3e50;
+}
+
+/* Header Styling */
+.blurred-header {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #e0e7ff;
+}
+
+/* Navigation Styles */
+.nav-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.nav-list li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.nav-list a {
+    color: #fafafa;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-list a:hover {
+    background-color: #fff;
+    color: var(--bg-color);
+}
+
+/* Filter Section */
+.filter-section {
+    background-color: #2d3436;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-section label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.filter-section select, .filter-section input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+/* Responsive Table Styling */
+.table-responsive {
+    display: flexbox; /* Added flexbox */
+    justify-content: center; /* Center horizontally */
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+#data-table {
+    width: 100%;
+    max-width: 800px; /* Set a max-width for better centering */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: var(--table-bg);
+}
+
+#data-table th, #data-table td {
+    padding: 15px;
+    border: 1px solid #e0e7ff;
+    text-align: center;
+}
+
+#data-table th {
+    background-color: var(--bg-color);
+    color: var(--light-color);
+}
+
+#data-table td {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* Styling for Status Cells */
+#data-table td.baik {
+    background-color: #34d399; /* Green */
+}
+
+#data-table td.hilang {
+    background-color: #f87171; /* Red */
+}
+
+#data-table td.dibaiki {
+    background-color: #f59e0b; /* Yellow */
+}
+
+/* Footer Styling */
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #e0e7ff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
