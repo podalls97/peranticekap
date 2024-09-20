@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const quantitySummary = document.getElementById('quantity-summary');
   const chartContainer = document.getElementById('chart-container');
   const dataDisplay = document.getElementById('data-display');
-  
+  let myChart; // Store the chart instance
+
   // Initially hide data elements
   dataDisplay.style.display = 'none';
   noDataMessage.style.display = 'none';
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${item.device}</td>
             <td>${item.model}</td>
             <td>${item.serial_number}</td>
-            <td>${item.status}</td>
+            <td class="${item.status.toLowerCase()}">${item.status}</td>
           `;
           tableBody.appendChild(row);
 
@@ -80,19 +81,29 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('quantity-hilang').textContent = quantityHilang;
         document.getElementById('quantity-dibaiki').textContent = quantityDibaiki;
 
-        // Update Chart
-        const chartCtx = document.getElementById('myChart').getContext('2d');
-        new Chart(chartCtx, {
-          type: 'pie',
-          data: {
-            labels: ['Baik', 'Hilang', 'Dibaiki'],
-            datasets: [{
-              label: 'Device Status',
-              data: [quantityBaik, quantityHilang, quantityDibaiki],
-              backgroundColor: ['#34D399', '#F59E0B', '#F87171']
-            }]
-          }
-        });
+        // Update or create Chart
+        if (myChart) {
+          // If chart exists, update the data
+          myChart.data.datasets[0].data = [quantityBaik, quantityHilang, quantityDibaiki];
+          myChart.update();
+        } else {
+          const chartCtx = document.getElementById('myChart').getContext('2d');
+          myChart = new Chart(chartCtx, {
+            type: 'doughnut', // Doughnut chart
+            data: {
+              labels: ['Baik', 'Hilang', 'Dibaiki'],
+              datasets: [{
+                label: 'Device Status',
+                data: [quantityBaik, quantityHilang, quantityDibaiki],
+                backgroundColor: ['#34D399', '#F59E0B', '#F87171']
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false, // Allow size customization
+            }
+          });
+        }
       }
 
       // Event listeners for filtering
@@ -110,14 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        const filteredData = data.filter(item => 
+        const filteredData = data.filter(item =>
           (selectedSchool === '' || item.school.toUpperCase() === selectedSchool) &&
           (selectedDeviceType === '' || item.device.toUpperCase() === selectedDeviceType) &&
           (item.school.toUpperCase().includes(searchTerm) ||
-           item.device.toUpperCase().includes(searchTerm) ||
-           item.model.toUpperCase().includes(searchTerm) ||
-           item.serial_number.toUpperCase().includes(searchTerm) ||
-           item.status.toUpperCase().includes(searchTerm))
+            item.device.toUpperCase().includes(searchTerm) ||
+            item.model.toUpperCase().includes(searchTerm) ||
+            item.serial_number.toUpperCase().includes(searchTerm) ||
+            item.status.toUpperCase().includes(searchTerm))
         );
 
         dataDisplay.style.display = 'block'; // Show data display when filtering is applied
