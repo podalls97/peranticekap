@@ -1,243 +1,289 @@
 /* General Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text color */
-    min-height: 100vh;
-    padding: 0 15px;
-    text-align: center;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+  min-height: 100vh;
+  padding: 0 15px;
+  text-align: center;
 }
 
 /* Neumorphic Variables */
 :root {
-    --bg-color: #121212;
-    --primary-color: #1c1c1c;
-    --white-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.5);
-    --light-shadow: rgba(255, 255, 255, 0.1);
+  --bg-color: #121212;
+  --primary-color: #1c1c1c;
+  --white-color: #333;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --light-shadow: rgba(255, 255, 255, 0.1);
 }
 
 /* Header Styling */
 .blurred-header {
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
-    margin-bottom: 20px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
+  margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    color: #e0e0e0;
+  font-size: 2.5rem;
+  color: #e0e0e0;
 }
 
 /* Overlay background for nav menu */
 .nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
-    z-index: 999; /* Below the hamburger and nav, above the rest of the content */
-    opacity: 0; /* Hidden by default */
-    pointer-events: none; /* Disable interaction when not visible */
-    transition: opacity 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  z-index: 999; /* Below the hamburger and nav, above the rest of the content */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Disable interaction when not visible */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .nav-overlay.active {
-    opacity: 1; /* Show overlay when active */
-    pointer-events: auto; /* Enable interaction when visible */
+  opacity: 1; /* Show overlay when active */
+  pointer-events: auto; /* Enable interaction when visible */
 }
 
 /* Navbar Styling */
 .nav-list {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    list-style: none;
-    z-index: 1002;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  list-style: none;
+  z-index: 1002;
 }
 
 .nav-list li {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .nav-list a {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 5px 15px;
-    border-radius: 10px;
-    background: var(--primary-color);
-    box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-shadow);
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background: var(--primary-color);
+  box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-shadow);
 }
 
 .nav-list a:hover {
-    box-shadow: inset 4px 4px 8px var(--shadow-color), inset -4px -4px 8px var(--light-shadow);
+  box-shadow: inset 4px 4px 8px var(--shadow-color), inset -4px -4px 8px var(--light-shadow);
 }
 
 /* Hamburger Button for Small Screens */
 .hamburger {
-    display: none; /* Hidden by default on large screens */
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #e0e0e0;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1002; /* Above both the nav background and nav list */
+  display: none; /* Hidden by default on large screens */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1002; /* Above both the nav background and nav list */
 }
 
 /* Add this to your media queries for small screens */
 @media (max-width: 768px) {
-    .nav-list {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -100%; /* Initially off-screen */
-        height: 100%;
-        width: 250px;
-        background-color: var(--primary-color);
-        padding-top: 60px;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-    }
+  .nav-list {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -100%; /* Initially off-screen */
+      height: 100%;
+      width: 250px;
+      background-color: var(--primary-color);
+      padding-top: 60px;
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
+  }
 
-    .nav-list.active {
-        left: 0; /* Slide-in effect when 'active' class is applied */
-    }
+  .nav-list.active {
+      left: 0; /* Slide-in effect when 'active' class is applied */
+  }
 
-    .nav-list li {
-        margin: 20px 0;
-    }
+  .nav-list li {
+      margin: 20px 0;
+  }
 
-    .hamburger {
-        display: block;
-        z-index: 1001; /* Ensure it stays on top of the nav */
-    }
+  .hamburger {
+      display: block;
+      z-index: 1001; /* Ensure it stays on top of the nav */
+  }
 
-    body.menu-open {
-        overflow: hidden; /* Prevent body from scrolling when the menu is open */
-    }
+  body.menu-open {
+      overflow: hidden; /* Prevent body from scrolling when the menu is open */
+  }
 }
 
 
 /* Neumorphic Section and Cards Styling */
 .section-objective, .section-ringkasan {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 60px auto;
-    max-width: 1200px;
-    padding: 40px;
-    border-radius: 15px;
-    background: var(--primary-color);
-    box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 40px;
+  border-radius: 15px;
+  background: var(--primary-color);
+  box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
 }
 
-.section-objective img, .section-ringkasan img {
-    max-width: 40%;
-    border-radius: 15px;
-    box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-shadow);
+.section-objective img {
+  max-width: 60%;
+  margin-left: 220px;
+  border-radius: 15px;
+  box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-shadow);
 }
 
-@media (max-width: 768px) {
-    .section-objective, .section-ringkasan {
-        flex-direction: column;
-    }
-
-    .section-objective img, .section-ringkasan img {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
+.section-ringkasan img {
+  max-width: 40%;
+  margin-left: 320px;
+  border-radius: 15px;
+  box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-shadow);
 }
+
+.section-ringkasan img {
+  margin-top: 20px;
+}
+
+
 
 .gamba-section h2 {
-    margin-bottom: 40px; /* Adds space below the heading */
-    margin-top: 20px; /* Adds space above the heading */
+  margin-bottom: 40px; /* Adds space below the heading */
+  margin-top: 20px; /* Adds space above the heading */
 }
 
 
 .gamba-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-top: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 30px;
 }
 
 .containers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: auto;
-    height: 100vh;
-    width: 100%;
-    max-width: 1200px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: auto;
+  height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+}
+
 
 .card {
-    flex: 1;
-    height: 100%;
-    border: 3px solid var(--light-shadow);
-    border-radius: 15px;
-    background: var(--primary-color);
-    box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
-    overflow: hidden;
-    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        & img {
-            object-fit: cover;
-            object-position: center;
-            }
+  flex: 1;
+  height: 100%;
+  border: 3px solid var(--light-shadow);
+  border-radius: 15px;
+  background: var(--primary-color);
+  box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
+  overflow: hidden;
+  transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      & img {
+          object-fit: cover;
+          object-position: center;
+          }
 }
 
 .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card:hover {
-    flex: 4;
+  flex: 4;
 }
 
 .containers:hover .card:not(:hover) {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
-@media (max-width: 768px) {
-    .card {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 576px) {
-    .card {
-        flex: 1 1 calc(100% - 20px);
-    }
-}
 
 /* Footer */
 footer {
-    margin-top: 50px;
-    color: #e0e0e0;
+  margin-top: 50px;
+  color: #e0e0e0;
 }
 
 footer a {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-weight: bold;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 970px) {
+  .section-ringkasan img, .section-objective img {
+    margin-left: 105px;
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  .card {
+    max-height: 70%;
+  }
+
+  .gamba-section h2 {
+    margin-top: -70px;
+    margin-bottom: -100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-objective, .section-ringkasan {
+      flex-direction: column;
+  }
+
+  .section-ringkasan img {
+      max-width: 50%;
+      max-height: 50%;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      margin-left: 110px;
+
+  }
+  .section-objective img {
+      max-width: 100%;
+      margin-left: 2px;
+      margin-bottom: 15px;
+  }
+
+  .card {
+    max-height: 50%;
+  }
+
+  .gamba-section h2 {
+    margin-top: -60px;
+    margin-bottom: -170px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .card {
+      max-height: 30%;
+  }
 }
