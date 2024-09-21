@@ -196,7 +196,11 @@ header h1 {
     background: var(--primary-color);
     box-shadow: 9px 9px 16px var(--shadow-color), -9px -9px 16px var(--light-shadow);
     overflow: hidden;
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        & img {
+            object-fit: cover;
+            object-position: center;
+            }
 }
 
 .card img {
