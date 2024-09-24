@@ -17,36 +17,45 @@ html, body {
   font-style: normal;
 }
 
+body {
+  background-color: #1B181F;
+}
+
+/* Container & Background */
 .container {
-  background-color: black;
+  background-color: #1B181F;
 }
 
 .bg {
-  margin-top: -50px;
-  height: 80vh;
+  margin: 0;
+  margin-top: 0;
+  min-height: 80vh;
   background: #1B181F;
 }
 
+/* Titles & Text */
 .small-title {
   letter-spacing: 5px;
   font-size: 20px;
   color: #F2F2F3;
-  padding-left: 20px;
-  padding-top: 0px;
-  margin-top: -50px;
+  padding: 20px;
+  margin-top: -70px;
 }
 
 .circle-row {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 60px;
+  padding-bottom: 10px;
   position: relative;
 }
 
 .circle {
-  width: 400px;
-  height: 400px;
+  width: 40vw;
+  height: 40vw;
+  max-width: 400px;
+  max-height: 400px;
   background: linear-gradient(to bottom, #262234 0%, #1B181F 40%);
   border-radius: 50%;
   position: relative;
@@ -56,58 +65,58 @@ html, body {
 }
 
 .circle-glow {
-  width: 350px;
-  height: 300px;
+  width: 35vw;
+  height: 35vw;
+  max-width: 350px;
+  max-height: 350px;
+  margin-bottom: 100px;
   border-radius: 50%;
   background: linear-gradient(to right, #5d035c, #9e1a5c, #f1804c,#9e1a5c,#5d035c);
   position: absolute;
-  bottom: 100px;
   filter: blur(30px);
 }
 
 .title {
   color: #F2F2F3;
   font-weight: 800;
-  font-size: 40px;
-  letter-spacing: 35px;
+  font-size: 5vw;
+  letter-spacing: 0.5vw;
+  text-align: center;
   position: absolute;
-  margin-top: -200px;
+  padding-bottom: 300px;
+  text-shadow: 5px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .subtittle {
   color: #f2f2f3;
-  font-size: 16px; /* Corrected */
-  font-weight: 700; /* Use specific font-weight */
-  letter-spacing: 20px;
-  margin-top: -120px;
+  font-size: 2.5vw;
+  letter-spacing: 2vw;
   text-align: center;
   position: absolute;
+  padding-bottom: 150px;
+  text-shadow: 5px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .sub {
   color: #cc64ca;
-  font-size: 16px; /* Corrected */
-  font-weight: 500; /* Use specific font-weight */
-  letter-spacing: 20px;
-  margin-top: -0px;
+  font-size: 2.5vw;
+  letter-spacing: 0.5vw;
   text-align: center;
   position: absolute;
+  padding-bottom: 40px;
+
 }
 
-/* Navbar styling */
+/* Navbar */
 .navbar {
   background-color: #1B181F;
-  position: static;
   width: 100%;
-  top: 10px;
-  left: 0;
+  top: 0;
   padding: 10px 0;
-  z-index: 1000;
 }
 
 .navbar ul {
   list-style-type: none;
-  
   padding: 0;
   text-align: center;
 }
@@ -123,7 +132,8 @@ html, body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
-  font-size: 16px;
+  font-size: 2svh;
+  text-align: center;
 }
 
 .navbar ul li a:hover {
@@ -132,107 +142,82 @@ html, body {
 
 /* Logo Carousel */
 .logo-carousel {
-  /* margin: px 0; */
   overflow: hidden;
   background-color: #2a2137;
+  padding: 20px;
 }
 
 .logo-track {
   display: flex;
-  /* flex: 1; */
-  /* height: 100%;
-  width: 100%; */
-  object-fit: cover;
   justify-content: space-between;
-  animation: scroll 19s linear infinite;
-  width: calc(200px);
-  height: calc(200px);
-  padding-top: 50px;
+  animation: scroll 55s linear infinite;
+  width: 200vw;
 }
 
 .logo-track img {
-  width: 60%;
-  height: 60%;
-  object-fit: cover;
-  object-position: center;
+  width: 10vw;
+  max-width: 60px;
+  height: auto;
   padding: 20px;
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(-350%);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(750%);
+    transform: translateX(100%);
   }
 }
 
-
-
-
-/* Objektif Section Styling */
-.section-objektif {
+/* Sections Styling */
+.section-objektif, .section-ringkasan {
   margin: 0;
-  overflow: hidden;
-  background: linear-gradient(to right, #262234 0%, #1B181F 40%);
+  padding: 40px 10px;
   color: #F2F2F3;
   text-align: left;
-  padding-left: 40px;
 }
 
-.section-objektif h2 {
-  font-size: 32px;
+.section-objektif {
+  background: linear-gradient(to right, #262234 0%, #1B181F 40%);
+}
+
+.section-ringkasan {
+  background: linear-gradient(to left, #262234 0%, #1B181F 40%);
+  text-align: center;
+}
+
+.section-objektif h2, .section-ringkasan h2 {
+  font-size: 2vw;
   font-family: "Nunito Sans", sans-serif;
-  margin-bottom: 20px;
 }
 
 .section-objektif p {
-  font-size: 18px;
+  font-size: 1.5vw;
+  text-align: justify;
+  padding-right: 250px;
   font-family: "Nunito Sans", sans-serif;
-  line-height: 1.6;
-  max-width: 800px;
-}
-
-/* Ringkasan Section Styling */
-.section-ringkasan {
-  margin: 0;
-  background: linear-gradient(to left, #262234 0%, #1B181F 40%);
-  color: #F2F2F3;
-  padding: 40px; /* Adjust as necessary */
-  display: flex;
-  justify-content: flex-end; /* Align the content container to the right */
-}
-
-.section-ringkasan .content {
-  max-width: 800px; /* Limit the width of the content */
-  text-align: right; /* Align text inside the container to the right */
-}
-
-.section-ringkasan h2 {
-  font-size: 32px;
-  font-family: "Nunito Sans", sans-serif;
-  margin-bottom: 20px;
 }
 
 .section-ringkasan p {
-  font-size: 18px;
+  font-size: 1.5vw;
+  text-align: justify;
+  padding: 0 100px;
   font-family: "Nunito Sans", sans-serif;
-  line-height: 1.6;
 }
 
-/* Image Gallery style */
+/* Image Gallery */
 .gamba-section {
-  padding-top: 15px;
+  padding: 40px 0;
   background: linear-gradient(to bottom, #262234 0%, #1B181F 40%);
-}
-
-.gamba-section h2 {
+  font-family: "Nunito Sans", sans-serif;
   text-align: center;
   color: #F2F2F3;
 }
 
 .containers {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -264,16 +249,18 @@ html, body {
 }
 
 .card:hover {
-  flex: 5;
+  flex-grow: 4;
 }
 
 .containers:hover .card:not(:hover) {
   filter: grayscale(100%);
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
   text-align: center;
+  font-size: 2svh;
+  font-family: "Nunito Sans", sans-serif;
   color: #cc64ca;
   padding: 20px;
   background: linear-gradient(to top, #262234 0%, #1B181F 40%);
@@ -287,18 +274,64 @@ footer a:hover {
   text-decoration: none;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .card {
-    max-height: 70%;
+  .circle {
+    width: 60vw;
+    height: 60vw;
   }
 
+  .circle-glow {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  .gamba-section {
+    padding-top: 1px;
+  }
+
+  .containers {
+    flex: 1;
+  }
+
+  .card {
+    max-height: 50vh;
+  }
+
+  .title {
+    font-size: 6vw;
+    padding-top: 40px;
+    letter-spacing: 0.7vw;
+  }
+
+  .section-objektif h2, .section-ringkasan h2 {
+    font-size: 5vw;
+    margin-top: -30px;
+  }
+
+  .section-objektif p {
+    font-size: 2vw;
+    padding-right: 200px;
+    padding-left: 0;
+    text-align: justify;
+  }
+  
+  .section-ringkasan p {
+    font-size: 2vw;
+    padding-left: 200px;
+    padding-right: 0;
+    text-align: justify;
+  }
 }
 
 @media (max-width: 480px) {
-  .card {
-    max-height: 40%;
+  .navbar ul li {
+    display: block;
+    margin: 10px 0;
   }
 
-
-
+  .card {
+    max-width: 100%;
+    min-height: 150px;
+  }
 }
