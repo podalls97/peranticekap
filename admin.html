@@ -37,10 +37,10 @@
     const reportForm = document.getElementById('reportForm');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
-
+  
     reportForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
+  
       // Data to send to the Google Sheet
       const reportData = {
         school: document.getElementById('school').value,
@@ -48,8 +48,10 @@
         issue: document.getElementById('issue').value,
         status: document.getElementById('status').value,
       };
-
-      // Use the new deployment ID here
+  
+      console.log('Submitting data:', reportData); // Log the data being sent
+  
+      // Use the new deployment URL here
       fetch('https://script.google.com/macros/s/AKfycbzmVqJQyDoEgpu3Epv3eHQUDlBG8EfVhO7cqTs8oLOdibm8AUrQupecRbshyuUX-vwckA/exec', {
         method: 'POST',
         body: JSON.stringify(reportData),
@@ -57,18 +59,25 @@
           'Content-Type': 'application/json',
         },
       })
-      .then(response => response.json())
+      .then(response => {
+        console.log('Response received:', response); // Log the full response object
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
+        console.log('Success:', data); // Log the success data from the server
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
         reportForm.reset();
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error('Error during submission:', error); // Log the error
         successMessage.style.display = 'none';
         errorMessage.style.display = 'block';
       });
     });
-  </script>
+  </script>  
 </body>
 </html>
