@@ -107,6 +107,27 @@ p {
     }
 }
 
+/* Styling for the team logo */
+.logo {
+    max-width: 150px; /* Limits the maximum size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Adds space below the logo */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 120px; /* Adjust logo size on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        max-width: 100px; /* Further adjust size for mobile devices */
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     h1 {
