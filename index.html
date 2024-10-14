@@ -30,6 +30,9 @@
     <meta name="twitter:description" content="Our ICT team at PPD Betong is developing Peranticekap, an advanced ICT platform for schools.">
     <meta name="twitter:image" content="src/IMG_2576.png">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="src/favicon.ico">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Raleway:wght@400;800&display=swap" rel="stylesheet">
     
@@ -38,8 +41,11 @@
 </head>
 <body>
     <div class="container">
-        <!-- Add Logo Here -->
-        <img src="src/IMG_2576.png" alt="PTICT Logo" class="logo">
+        <!-- Picture element to support AVIF with PNG fallback -->
+        <picture>
+            <source type="image/avif" srcset="src/IMG_2576.avif">
+            <img src="src/IMG_2576.png" alt="PTICT Logo" class="logo">
+        </picture>
         
         <div class="content">
             <h1 class="fade-in">PTICT PPD BETONG is <span class="highlight">Coming Soon</span></h1>
